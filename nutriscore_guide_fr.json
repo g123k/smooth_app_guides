@@ -1,0 +1,86 @@
+{
+  "title": "Le Nutri-Score change : explications !",
+  "header": {
+    "image": {
+      "type": "from_to",
+      "from": {
+        "type": "cache",
+        "src": "nutriscore-a.svg",
+        "alt": "Le logo Nutri-Score A",
+        "min_width": 115
+      },
+      "to": {
+        "type": "cache",
+        "src": "nutriscore-a-new-fr.svg",
+        "alt": "Le logo Nutri-Score A",
+        "min_width": 115
+      },
+      "alt": "Illustration montrant le passage de l'ancien au nouveau Nutri-Score"
+    }
+  },
+  "body": [
+    {
+      "type": "section",
+      "title": "Qu'est-ce que le Nutri-Score ?",
+      "content": [
+        {
+          "type": "text",
+          "content": "Le Nutri-Score est un logo qui a pour objectif de vous informer sur la *qualité nutritionnelle des aliments*."
+        },
+        {
+          "type": "text",
+          "content": "Le code couleur varie en allant du vert foncé (*A*) pour les produits les *plus sains* au rouge foncé (*E*) pour les *moins sains*. "
+        },
+        {
+          "type": "image",
+          "date": {
+            "type": "cache",
+            "src": "nutriscore-a.svg"
+          },
+          "src": "nutriscore-a.svg",
+          "caption": "Le logo Nutri-Score A",
+          "alt": "Le logo Nutri-Score A (version 1)",
+          "width": 115
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Pourquoi le Nutri-Score evolue-t-il ?",
+      "content": [
+        {
+          "type": "text",
+          "content": "La formule du Nutri-Score *évolue* pour fournir de meilleures recommandations :"
+        },
+        {
+          "type": "title_with_icon",
+          "content": "Mieux évaluer l’ensemble des boissons",
+          "icon": {
+            "type": "icon",
+            "src": "milk"
+          },
+        },
+        {
+          "type": "image",
+          "date": {
+            "type": "cache",
+            "src": "nutriscore-a.svg"
+          },
+          "src": "nutriscore-a.svg",
+          "caption": "Le logo Nutri-Score A",
+          "alt": "Le logo Nutri-Score A (version 1)",
+          "width": 115
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "links": [
+      {
+        "href": "TODO",
+        "title": "Santé Publique France",
+        "alt": "Partager le guide"
+      }
+    ]
+  }
+}

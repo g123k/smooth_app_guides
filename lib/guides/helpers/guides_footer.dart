@@ -1,0 +1,108 @@
+import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+import 'package:smooth_guide/theme_colors.dart';
+
+class GuidesFooter extends StatelessWidget {
+  const GuidesFooter({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension colors =
+        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    return CustomPaint(
+      painter: _FooterPainter(
+        color: colors.primaryNormal,
+        wazeSize: _FooterPainter.WAZE_SIZE,
+      ),
+      child: SizedBox(
+        width: double.infinity,
+        child: Padding(
+          padding: EdgeInsetsDirectional.only(
+            top: _FooterPainter.WAZE_SIZE + 12.0,
+            start: 20.0,
+            end: 20.0,
+            bottom: 10.0 + MediaQuery.viewPaddingOf(context).bottom,
+          ),
+          child: TextButton(
+            style: TextButton.styleFrom(
+              foregroundColor: colors.primaryBlack,
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(24.0),
+              ),
+              padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: 10.0,
+                vertical: 20.0,
+              ),
+            ),
+            child: const Text(
+              "Partager",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 15.5,
+              ),
+            ),
+            onPressed: () {},
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _FooterPainter extends CustomPainter {
+  _FooterPainter({
+    this.wazeSize = WAZE_SIZE,
+    required Color color,
+  })  : assert(color.opacity > 0.0),
+        _localPaint = Paint()
+          ..color = color
+          ..style = PaintingStyle.fill;
+
+  static const double WAZE_SIZE = 24.0;
+  final double wazeSize;
+  final Paint _localPaint;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    Offset offset = Offset(wazeSize / 2, wazeSize / 2);
+
+    /// Draw top waves
+    while (true) {
+      canvas.drawArc(
+        Rect.fromCenter(
+          center: offset,
+          height: wazeSize,
+          width: wazeSize,
+        ),
+        math.pi,
+        math.pi,
+        false,
+        _localPaint,
+      );
+
+      offset = offset.translate(wazeSize, 0);
+      if (offset.dx > (size.width + wazeSize)) {
+        break;
+      }
+    }
+
+    /// Draw background color
+    canvas.drawRect(
+        Rect.fromLTWH(
+          0,
+          // 0.5 to eliminate some glitches
+          (wazeSize / 2) - 0.5,
+          size.width,
+          size.height,
+        ),
+        _localPaint);
+  }
+
+  @override
+  bool shouldRepaint(_FooterPainter oldDelegate) => false;
+
+  @override
+  bool shouldRebuildSemantics(_FooterPainter oldDelegate) => false;
+}
