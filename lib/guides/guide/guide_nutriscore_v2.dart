@@ -74,7 +74,7 @@ class _NutriScoreSection1 extends StatelessWidget {
         GuidesImage(
           imagePath: 'assets/cache/nutriscore-a.svg',
           caption: 'Le logo Nutri-Score A',
-          desireWidthPercent: 0.30,
+          desiredWidthPercent: 0.30,
         ),
       ],
     );
@@ -141,7 +141,7 @@ class _NutriScoreSection3 extends StatelessWidget {
         GuidesImage(
           imagePath: 'assets/cache/nutriscore-a-new-fr.svg',
           caption: 'Le logo du nouveau Nutri-Score',
-          desireWidthPercent: 0.30,
+          desiredWidthPercent: 0.30,
         ),
       ],
     );
@@ -167,7 +167,7 @@ class _NutriScoreSection4 extends StatelessWidget {
                 'Sans attendre, vous **retrouvez déjà dans l\'application Open Food Facts**, le nouveau calcul, y compris si les fabriquants n’ont pas mis à jour le score.',
             imagePath:
                 'assets/app/release_icon_light_transparent_no_border.svg',
-            desireWidthPercent: 0.15)
+            desiredWidthPercent: 0.15)
       ],
     );
   }

@@ -13,13 +13,13 @@ class GuidesFooter extends StatelessWidget {
     return CustomPaint(
       painter: _FooterPainter(
         color: colors.primaryNormal,
-        wazeSize: _FooterPainter.WAZE_SIZE,
+        wazeSize: _FooterPainter.WAVE_SIZE,
       ),
       child: SizedBox(
         width: double.infinity,
         child: Padding(
           padding: EdgeInsetsDirectional.only(
-            top: _FooterPainter.WAZE_SIZE + 12.0,
+            top: _FooterPainter.WAVE_SIZE + 12.0,
             start: 20.0,
             end: 20.0,
             bottom: 10.0 + MediaQuery.viewPaddingOf(context).bottom,
@@ -53,14 +53,14 @@ class GuidesFooter extends StatelessWidget {
 
 class _FooterPainter extends CustomPainter {
   _FooterPainter({
-    this.wazeSize = WAZE_SIZE,
+    this.wazeSize = WAVE_SIZE,
     required Color color,
   })  : assert(color.opacity > 0.0),
         _localPaint = Paint()
           ..color = color
           ..style = PaintingStyle.fill;
 
-  static const double WAZE_SIZE = 24.0;
+  static const double WAVE_SIZE = 24.0;
   final double wazeSize;
   final Paint _localPaint;
 

@@ -190,21 +190,23 @@ class GuidesIllustratedText extends StatelessWidget {
   const GuidesIllustratedText({
     required this.text,
     required this.imagePath,
-    required this.desireWidthPercent,
+    required this.desiredWidthPercent,
     super.key,
   })  : assert(text.length > 0),
         assert(imagePath.length > 0);
 
   final String text;
   final String imagePath;
-  final double? desireWidthPercent;
+  final double? desiredWidthPercent;
 
   @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension colors =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
     final int imageWidth =
-        (desireWidthPercent != null ? desireWidthPercent! : 0.25) * 100.0 ~/ 1;
+        (desiredWidthPercent != null ? desiredWidthPercent! : 0.25) *
+            100.0 ~/
+            1;
 
     return Semantics(
       label: text,
@@ -264,6 +266,7 @@ class GuidesTitleWithText extends StatelessWidget {
         end: GuidesParagraph._HORIZONTAL_PADDING - 2.0,
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _GuidesTextTitle(
             title: title,
@@ -340,18 +343,18 @@ class GuidesImage extends StatelessWidget {
   const GuidesImage({
     required this.imagePath,
     required this.caption,
-    this.desireWidthPercent,
-    this.desireHeightPercent,
+    this.desiredWidthPercent,
+    this.desiredHeightPercent,
     super.key,
   })  : assert(caption.length > 0),
-        assert(desireWidthPercent == null ||
-            desireWidthPercent >= 0.0 && desireWidthPercent <= 1.0),
-        assert(desireHeightPercent == null ||
-            desireHeightPercent >= 0.0 && desireHeightPercent <= 1.0);
+        assert(desiredWidthPercent == null ||
+            desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0),
+        assert(desiredHeightPercent == null ||
+            desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0);
 
   final String imagePath;
-  final double? desireWidthPercent;
-  final double? desireHeightPercent;
+  final double? desiredWidthPercent;
+  final double? desiredHeightPercent;
   final String caption;
 
   @override
@@ -384,8 +387,8 @@ class GuidesImage extends StatelessWidget {
               children: [
                 _ImageFromAssets(
                   imagePath: imagePath,
-                  desireWidthPercent: desireWidthPercent,
-                  desireHeightPercent: desireHeightPercent,
+                  desiredWidthPercent: desiredWidthPercent,
+                  desiredHeightPercent: desiredHeightPercent,
                 ),
                 const SizedBox(height: 5.0),
                 Text(
@@ -407,16 +410,16 @@ class GuidesImage extends StatelessWidget {
 class _ImageFromAssets extends StatelessWidget {
   const _ImageFromAssets({
     required this.imagePath,
-    this.desireWidthPercent,
-    this.desireHeightPercent,
-  })  : assert(desireWidthPercent == null ||
-            desireWidthPercent >= 0.0 && desireWidthPercent <= 1.0),
-        assert(desireHeightPercent == null ||
-            desireHeightPercent >= 0.0 && desireHeightPercent <= 1.0);
+    this.desiredWidthPercent,
+    this.desiredHeightPercent,
+  })  : assert(desiredWidthPercent == null ||
+            desiredWidthPercent >= 0.0 && desiredWidthPercent <= 1.0),
+        assert(desiredHeightPercent == null ||
+            desiredHeightPercent >= 0.0 && desiredHeightPercent <= 1.0);
 
   final String imagePath;
-  final double? desireWidthPercent;
-  final double? desireHeightPercent;
+  final double? desiredWidthPercent;
+  final double? desiredHeightPercent;
 
   @override
   Widget build(BuildContext context) {
@@ -425,21 +428,21 @@ class _ImageFromAssets extends StatelessWidget {
         if (imagePath.endsWith('.svg')) {
           return SvgPicture.asset(
             imagePath,
-            width: desireWidthPercent != null
-                ? constraints.maxWidth * desireWidthPercent!
+            width: desiredWidthPercent != null
+                ? constraints.maxWidth * desiredWidthPercent!
                 : null,
-            height: desireHeightPercent != null
-                ? constraints.maxHeight * desireHeightPercent!
+            height: desiredHeightPercent != null
+                ? constraints.maxHeight * desiredHeightPercent!
                 : null,
           );
         } else {
           return Image.asset(
             imagePath,
-            width: desireWidthPercent != null
-                ? constraints.maxWidth * desireWidthPercent!
+            width: desiredWidthPercent != null
+                ? constraints.maxWidth * desiredWidthPercent!
                 : null,
-            height: desireHeightPercent != null
-                ? constraints.maxHeight * desireHeightPercent!
+            height: desiredHeightPercent != null
+                ? constraints.maxHeight * desiredHeightPercent!
                 : null,
           );
         }
